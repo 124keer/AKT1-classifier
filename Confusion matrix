@@ -1,0 +1,20 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+cm_data = [[916, 61], [24, 464]]
+classes = ['P', 'N']
+group_names = ['TP', 'FP', 'FN', 'TN']
+labels = np.asarray(group_names).reshape(2,2)
+
+# data = [[TP, FP],[FN, TN]]
+ax = sns.heatmap(cm_data, annot=True, cmap='PiYG', fmt='d', xticklabels=classes, yticklabels=classes, facecolor='black')
+
+
+# plt.rcParams['cm.dpi']=300
+# ax = sns.heatmap(cm_data, cmap="Blues", annot=True, xticklabels=classes, yticklabels=classes, fmt='d')
+ax.set( xlabel="Actual class", ylabel="Predicted class")
+plt.xlabel('Actual class', fontsize=12,fontweight='bold')
+plt.ylabel('Predicted class', fontsize=12, fontweight='bold')
+# cm_data.set_xticklabels=(['False', 'True'])
+plt.show
